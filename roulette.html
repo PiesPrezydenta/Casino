@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+      <script src="math.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+    <link href="Main.css" rel="stylesheet">
+    <link href="roulette.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata" rel="stylesheet">
+
+    <title>Dice</title>
+    <link rel="icon" href="favicon-32x32.png">
+    <style>
+    .font {
+    font-family: 'Inconsolata', monospace !important;
+    color: white;
+  }
+  .body 
+  {background-color:#D5BF86;}
+  
+  .row{
+  margin-top: 30px;
+  margin-bottom: 30px
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+  
+      </style>
+  </head>
+  <body style="background-image: url('casino2.png');">
+
+    <div class="container-fluid" style="background-color:#5C0029">
+        <h1 class="font text-center"><a href="math.html">Dice</a></h1>
+        </div>
+    <div class="container" style="background-color:#61304B;">
+      
+        <h1 class="font">Roulette</h1>
+        <p class="font">It might come as a surprise that the roulette wheel was first invented by Blaise Pascal: a philosopher, physicist, mathematician and one of most brilliant minds in European history. Around 1655, he tried to invent a perpetual motion machine, which (sadly?) did not succeed, by using a spinning disk similar to the one used in roulette. Through a later addition of the zero in the 19th century, which gave the house a greater edge, Pascal's invention turned into the popular casino game played across the world today.
+        </p><h3 class="font">What are the rules? </h3>
+        <p class="font">A ball is spun in a wheel, inside which are slots with corresponding numbers 0-36. The goal of the player is to guess in which of these slots will the ball end up.
+          To do this the players bet on the numbers using a table that looks something like this:
+        </p>
+        <img src="roullete_table.png" class="center">
+        <p class="font">The outside are the 1-18, 9-36, red, black, odd and even bets. These pay out one to one, meaning if you bet $2, you win 4$. The 12th bets and the columns bets (also part of the outside) pay out 2 to 1, meaning if you bet $2 dollars you win $6. You have to bet the table minimum on outside bets.</p>
+        <p class="font">The inside are the bets on the individual numbers. Here the total sum of the bets must be at least equal to the table minimum. You can bet straight up on a number, meaning you choose one number that the ball will land on. If you win you get paid 35 to 1. You can also put a chip on a line, which indicates a bet on more than one number at a time.
+          A two number bet pays 17 to 1. A three number bet pays 11 to 1. A four number bet (also called the corner) pays 5 to 1. So how do you beat the odds and win some money?
+        </p>
+        <p class="font"><a href="https://www.youtube.com/watch?v=JR5JNVxZolU">Video explanation</a></p>
+        <img src="wheeler.png" height="200" width="200" class="center">
+        <h3 class="font">The Martingale Strategy </h3>
+        <p class="font">The rules of this strategy are that each time you lose, you double your previous bet. This is because if you win, you profit and recover your previous losses. Nonetheless, this strategy has the drawback of being very expensive. Let's look at some math.</p>
+        <p class="font">If all n bets lose, the total loss is</p>
+        <div class="col-sm-12">
+          \begin{gather}
+\textcolor[rgb]{1,1,1}{B\left( 2^{n} -1\right)}\\
+ \notag\\
+\textcolor[rgb]{1,1,1}{B=value\ of\ initial\ bet,\ n=number\ of\ bets} \notag
+\end{gather}</div>
+        <p class="font">Therefore, the money spent increases exponentially. When represented graphically, it looks like this </p>
+        <img src="Martingale_graph.png" class="center">
+        <p class="font"><a href="https://www.desmos.com/calculator?lang=en">You can play with the value of the initial bet using a slider in desmos (replace n with x).</a></p>
+        <p class="font">If q<sup>n</sup> is the probability that one will lose all bets, the expected profit per spin is</p>
+        <div class="col-sm-12">
+\begin{gather}
+\textcolor[rgb]{1,1,1}{B( 1-( 2q)^{n})}\\
+ \notag\\
+\textcolor[rgb]{1,1,1}{B=value\ of\ initial\ bet,\ q=probability\ of\ losing\ } \notag\\
+\textcolor[rgb]{1,1,1}{n=number\ of\ bets} \notag
+\end{gather}</div>
+          <p class="font">Therefore, if the probability of losing q is greater than 0.5, the gambler is expected to lose money. In the case of this strategy, the loss will grow exponentially, therefore it is probably not recommended in the long term. Here is how this looks graphically, with q set to 34/35, the expected loss if betting on an individual number.</p>
+          <img src="martingale_loss.png" class="center">
+          <p class="font">You can see that the loss grows exponentially. This means that on average, the martingale strategy is bound to make one lose money in roulette. The loss is greater when betting on low odd outcomes, thus it is much better to use this strategy when betting on the outside than on individual numbers or pairs of numbers. </p>
+          <p class="font">There is one special circumstance, in which the martingale strategy can work. Assume that I walk into a casino with $50 in my wallet, and I desperately need $52 dollars for a video game. To achieve this, I should bet the smallest amount possible to achieve my goal, which in the case of the first bet is $2 and each subsequent one is my previous loss + $2. There is about a 95% chance I achieve this goal if I bet on the outside, and thus the martingale method could be advisable.</p>
+          <h3 class="font">The d'Alembert strategy</h3>
+          <p class="font">Named after Jean le Rond d'Alembert, the 18th century French mathematician and physicist, this betting system is quite similar to the martingale. It works best when betting on the outside. If you bet $1 and you lose, the next bet you put out $2, similar to the martingale. However, when you win, you decrease your next bet by one. An example game would look something like this:</p>
+          <p class="font">1. Bet $1; lose.</p>
+          <p class="font">2. Bet $2; lose.</p>
+          <p class="font">3. Bet $3; win.</p>
+          <p class="font">4. Bet $2; win.</p>
+          <p class="font">5. Bet $1; lose.</p>
+          <p class="font">6. Bet $2.</p>
+          <p class="font">This system is apparently good for managing winning or losing streaks, however truthfully, streaks do not exist in roulette, as each spin is independent from the previous one (see gambler's fallacy). The probability of winning is the same as the probability of winning when you won the two previous times. Furthermore, you will (on average) always lose money in a casino, due to something called the house edge.</p>
+          <h3 class="font">House edge</h3>
+          <p class="font">Have you ever wondered what the purpose of the green zero is on the roulette wheel? And how does a casino make money if it is also technically gambling? This is where the house edge comes in. It is defined as the percentage advantage that the casino will have compared to a gambler. This is necessary for the casino to make a profit, as 50/50 odds, would on average make the casino lose money, due to operating costs. There are also other sources of profit for a casino, such as selling drinks, however the house edge is still very important. It usually ranges from 1-16 %. Here is how it can be calculated for roulette</p>
+          <div class="col-sm-12">
+            \begin{gather}
+            \textcolor[rgb]{1,1,1}{House\ edge=( odds\ to\ lose\ bet-house\ odds) \times probability\ of\ win}\\
+            \textcolor[rgb]{1,1,1}{House\ edge=\ \left(\frac{1}{36} -\frac{1}{35}\right) \times \frac{1}{37} =0.0271} \notag\\
+            \textcolor[rgb]{1,1,1}{House\ edge=0.0271\times 100=2.71\%} \notag
+            \end{gather}</div>
+            <p class="font">The house edge for roulette is relatively low, therefore in the US most casinos have an additional double zero on the wheel. There are 37 possible numbers, but the payout for the gambler is 35 to 1, because of the house edge phenomenon. Long term, the house always profits.</p>
+            <img src="american_european_roulette.png" class="center">
+          <h3 class="font">Gambler's fallacy</h3>
+          <p class="font">If you flip a coin 49 times, and it has been consistently landing on heads all the time, you might think that there is a higher chance of the 50th flip being heads. But, assuming that nothing is physically biased with the coin or your throws, the probability of heads is still just 1/2. A coin landing on heads 49 times is extremely unlikely, in fact the probability of that happening is</p>
+          <div class="col-sm-12">
+            \begin{equation}
+            \textcolor[rgb]{1,1,1}{\left(\frac{1}{2}\right)^{49} =1.78\times 10^{-15}}
+            \end{equation}</div>
+            <p class="font">This is extremely unlikely, yet it could happen. And in fact it does happen. In 1913, in the Monte Carlo casino, the roulette wheel has landed on black multiple times in a row. People started thinking that they are on a streak, and started betting larger and larger sums of money, thinking that the wheel must land on red. However, it took 27 spins for the wheel to land on red, which led to millions of dollars being lost according to accounts. This is the best example of the gambler's fallacy, for which another name is the Monte Carlo fallacy, named after this infamous night. A gambler might think that a certain event is more or less likely, given a previous series of events, which is mathematically unreasonable. This thinking may lead to people implementing
+              the d'Alembert strategy etc. however none are mathematically justified, especially if the house edge is considered.
+            </p>
+            <img src="monte_carlo.png" class="center">
+          <p class="font"> Jordan Ellenberg writes extensively about this fallacy in other contexts, in his book "How to Not be Wrong; The Power of Mathematical Thinking", which I highly recommend checking out.
+          </p>
+          <img src="cool_roulette_vintage.png" class="center">
+          <h3 class="font">Prediction methods</h3>
+          <p class="font">As you can see, no matter the intricacy of your betting system or belief in luck, there is no way to overcome the house edge and on average you will lose money. However, all the above calculations were performed assuming a perfect roulette wheel. This is an impossibility, since roulettes are physical objects that are destined to have some degree of imperfection, which could influence the odds.
+            The first and most prominent person that used a method to predict the bias of the roulette was Joseph Jagger at Monte Carlo in 1873, who because of this won huge sums of money. In the 60s, Edward O. Thorp and Claude Shannon built the first computer to predict roulette results. Later this method evolved to using lasers and other intricate mechanisms, but in general it allowed certain crafty individuals to win large amounts of money. 
+            This method works by analysing the result of many roulette spins and seeing if the ball is more likely to land in certain slots than others. If for example, one saw that the likelihood of winning when betting on black is 54% (or anything above 50%), using the martingale strategy would yield an expected profit of
+          </p>
+          <div class="col-sm-12">
+\begin{equation}
+\textcolor[rgb]{1,1,1}{2\left( 1-( 2\times 0.46)^{30}\right) =1.84}
+\end{equation}</div>
+            <p class="font">where the initial bet is $2 and there are 30 rounds played. This is a percent profit of </p>
+            <div class="col-sm-12">\begin{equation}
+              \textcolor[rgb]{1,1,1}{\frac{1.84}{2} \times 100=92\%}
+              \end{equation}</div>
+            <p class="font">Thus the value of predicting mechanical bias of the roulette wheel is clear. You can now try on your own to see if you can use the martingale combined with the prediction method to calculate the profit you would make on this coin flip. The answer will be down below, but remember that you choose the initial bet value, therefore it might be slightly different. I will keep using $2 for my own calculations. Hopefully, using a coin flip makes it easier and more understandable.</p>
+            <div id="coin">
+              <div class="side-a"></div>
+              <div class="side-b"></div>
+            </div>
+            <h5 class="font" class="center">Click the coin to flip</h5>
+
+    </div>
+    <script>
+      jQuery(document).ready(function($){
+
+$('#coin').on('click', function(){
+  var flipResult = Math.pow(Math.random(), 2);
+  $('#coin').removeClass();
+  setTimeout(function(){
+    if(flipResult <= 0.5){
+      $('#coin').addClass('heads');
+      console.log('it is head');
+    }
+    else{
+      $('#coin').addClass('tails');
+      console.log('it is tails');
+    }
+  }, 100);
+});
+});
+    </script>
+
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"> </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </body>
+    </html>

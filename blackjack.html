@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+      <script src="math.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap" rel="stylesheet">
+    <link href="Main.css" rel="stylesheet">
+    <link href="roulette.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script
+  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+  crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata" rel="stylesheet">
+
+    <title>Dice</title>
+    <link rel="icon" href="favicon-32x32.png">
+    <style>
+    .font {
+    font-family: 'Inconsolata', monospace !important;
+    color: white;
+  }
+  .body 
+  {background-color:#D5BF86;}
+  
+  .link
+  {color:#D5BF86!important;}
+
+  .row{
+  margin-top: 30px;
+  margin-bottom: 30px
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+  
+      </style>
+  </head>
+  <body style="background-image: url('casino_3.png');">
+
+    <div class="container-fluid box" style="background-color:#5C0029">
+        <h1 class="font text-center"><a href="math.html">Dice</a></h1>
+        </div>
+    <div class="container" style="background-color:#61304B;">
+      
+        <h1 class="font">Blackjack</h1>
+        <p class="font">You are probably familiar with the movie 21; a few MIT students go to Vegas with the guidance of their professor in order to make some money counting cards in blackjack. You probably wonder how 
+            card counting actually works and the history of it. First we should go over the rules and history of blackjack so we can be on the same page, and then I will try to explain card counting. By the way, card counting
+            is prohibited in most casinos, so don't be surprised if you get kicked out if you count on the fingers of your hand or something like that.
+        </p>
+        <img src="21_movie_scene.png" class="center">
+        <p class="font caption">Scene from the movie 21 (2008), directed by Robert Luketic.</p>
+        <h3 class="font">Rules</h3>
+        <p class="font">The origins of blackjack go back to the 1760s in France, however the game became truly popular during World War I. Blackjack is played with a standard 52 card deck and the goal is to beat the dealer by getting a score close to 21 points by drawing cards, without going over 21. Number cards are worth their number, 
+            face cards (king, queen) are worth 10 points and aces are valued 1 or 11. When the game begins, the players place their bets in some designated area.
+        The dealer shuffles the cards and deals two cards face up to each of the players, and one card face down, one card face up to himself. If one of the players has a combination of cards worth 21 points (ace + face card, or ace + 10), he immidiately wins, given that the dealer does not have 21. This is called the "natural". The payout is 1.5 times the player's initial bet. If the dealer has a 10 or an ace, he flips his face down cards, and if he has 21, he collects the chips
+    of all players who do not have 21. If the dealer does not have a natural, the player to the left of the dealer decides if to draw an additional card or to stay with the cards he currently has. The player can ask for additional cards, one at a time, until he decides to stops or goes over 21 (bust). When every player has done this, 
+the dealer turns up his face-down card. If the total is 17 or more, the dealer must stand, or draw no additional card (if the dealer has an ace and counting it would bring the total over 17, he values it as 11). If the dealer has less than 17, he continues drawing cards until he reaches 17 or over.</p>
+        <img src="vintage_blackjack.png" class="center">
+        <p class="font caption">Example blackjack table.</p>
+        <p class="font">If the player's first two cards are the same (two nines or two kings), the player can treat them as two separate hands. The amount of the original bet then goes on one of the cards, and an equal amount must be placed as a bet on the other card. The two hands are treated separately. When the player has a pair of aces, he only can draw one card per ace. Another option open to the player is doubling their bet when the original two cards dealt total 9, 10, or 11. When the player's turn comes, they place a bet equal to the original bet, and the dealer gives the player just one card, which is placed face down. Furthermore, when the dealer's face-up card is an ace, any of the players may make a side bet of up to half the original bet that the dealer's face-down card is a ten-card, and thus a blackjack for the house. Once all such side bets are placed, the dealer looks at the hole card. If it is a ten-card, it is turned up, and those players who have made the insurance bet win and are paid double the amount of their half-bet - a 2 to 1 payoff.</p>
+        <p class="font">The dealer cannot double down or split.</p>
+        <a class="font" href="https://www.youtube.com/watch?v=PljDuynF-j0">Video on rules of blackjack</a>
+        <h3 class="font">Strategy</h3>
+        <p class="font">The basic strategy in blackjack is hitting until a total of 17 or more, when the dealer's card is a 7 or above. The player should hit until 12 or more, if the dealer's card is below a 7. This strategy is based on the hope that the dealer goes over 21 (goes bust).
+            The strategy for doubling down is that when the total is 11, the player should always double down. With a total of 10, the player should double down, unless the dealer has a ten-card or ace. With a total of 9, double down only when the dealer has a card lower than 7. For splitting, the player should always split a pair of aces or 8s; identical ten-cards should not be split, and neither should a pair of 5s, since two 5s are a total of 10, which can be used more effectively in doubling down. A pair of 4s should not be split either, as a total of 8 is a good number to draw to. Generally, 2s, 3s, or 7s can be split unless the dealer has an 8, 9, ten-card, or ace. Finally, 6s should not be split unless the dealer's card is poor (2 through 6).
+        </p>
+        <img src="blackjack_1934.png" class="center">
+        <p class="font caption">People playing blackjack in 1934.</p>
+        <h3 class="font">Card counting</h3>
+        <p class="font">The strategy shown above is fairly basic, and a much more favourable approach to blackjack is card counting. This method goes back to Edward O. Thorp's 1962 book, <i>Beat the Dealer</i>. The strategy tries to limit the house edge, and turn the odds around, by making use of the fact that high cards (ten-cards, aces) benefit the player more than the dealer, and low cards benefit the dealer more than the player. Why?</p>
+        <p class="font">1. High cards increase the odds of a player hitting 21.</p>
+        <p class="font">2. High cards increase the chance that doubling down will be profitable.</p>
+        <p class="font">3. The player has more opportunities to split.</p>
+        <p class="font">4. High amount of 10s makes insurance bets profitable, as it increases the chance of a dealer getting 21.
+        </p>
+        <p class="font">5. High cards increase the probability of the dealer going over 21 (busting).</p>
+        <p class="font">The simplest card counting system that takes advantage of the facts listed above, is called the Hi-Lo. It is a level 1 counting system.
+            The basic principle of this system is that low cards (2 to 6) get assigned a value of +1, cards 7 to 9 get assigned a value of 0, and high cards (ten, face cards, aces) get assigned a value of -1. You sum up all of the values of cards that you see in play. The greater the result, the bigger the chances of the player winning. Every time the cards are shuffled, the count resets to 0.
+            Therefore, a running count of +5, gives the player larger chances of winning than a running count of -2. Since blackjack is often played with more than one deck of cards, one needs to adjust the running count value. This is called the true count and is calculated the following way
+        </p>
+        <div class="col-sm-12">
+            \begin{equation}
+            \textcolor[rgb]{1,1,1}{true\ count=\frac{running\ count}{decks\ remaining}}
+            \end{equation}</div>
+        <p class="font">For example, for a running count of +8, with 2 decks remaining</p>
+        <div class="col-sm-12">\begin{equation}
+            \textcolor[rgb]{1,1,1}{true\ count=\frac{+8}{2} =+4}
+            \end{equation}</div>
+         <p class="font">Once the true count is established, one should find the bet unit. It can be calculated using the following ratio: </p>
+         <div class="col-sm-12">
+          \begin{equation}
+          \textcolor[rgb]{1,1,1}{Bet\ unit=\frac{bankroll}{1000}}
+          \end{equation}</div>
+
+         <p class="font">The recommended bet unit is 1/1000, meaning if there is $1000 total in play, the bet unit is $1. You can learn more about bet unit <a class="link" href="https://www.blackjackapprenticeship.com/recommended-blackjack-bankroll/?source=post_page---------------------------">here</a>.</p>
+         <p class="font">Finally to find the bet amount</p>
+         <div class="col-sm-12">
+          \begin{gather}
+          \textcolor[rgb]{1,1,1}{If\ true\ count\  >2:}\\
+          \textcolor[rgb]{1,1,1}{bet\ amount=bet\ unit\times ( true\ count-1)} \notag\\
+           \notag\\
+          \textcolor[rgb]{1,1,1}{If\ true\ count\ \leqslant 2:} \notag\\
+          \textcolor[rgb]{1,1,1}{bet\ amount=bet\ unit} \notag
+          \end{gather}</div>
+        <p class="font">Using this strategy, you should be able to win money if you play long enough. The problem with counting cards however, is that it makes one more likely to play inaccurately and also can slow the player down, because one has to constantly keep track of the count. So make sure you practice this technique and brush up on your mental math, before you employ this method in a casino.</p>
+        <a class="font link" href="https://towardsdatascience.com/beating-the-dealer-with-simple-statistics-71b5e3701638">Great article about a simulation of card counting made in python.</a>
+        <img src="rainman_blackjack.png" class="center">
+        <p class="font caption">Blackjack portrayed in the movie Rain Man (1988), directed by Barry Levinson.</p>
+        <h3 class="font">Casino reactions</h3>
+        <p class="font">The clever strategies of blackjack players do not go unnoticed by casinos. Card counting is not illegal in most places if no external card counting device or an assistant is used, however casinos try to introduce countermeasures to limit the practice. 
+          By the way, the argument that card counting as a skill or that it is cheating is quite interesting, as blackjack is one of the few gambling games where the player's ability is a factor. I personally think it is a skill, as it is hard to call thinking and doing math, cheating (that's also what many court rulings agree on). It's like 
+        saying that a student who reads more than is in the textbook and uses different methods to solve problems, is cheating. But you decide what your stand on this dilemma is. Anyways, as I was saying, many casinos employ countermeasures to discourage card counting. 
+      One of the most popular methods is using shuffling machines, which greatly decrease the penetration (the number of the cards dealt before a shuffle), which causes a reset of the true count very often, which greatly limits the usefulness of counting cards.
+    Furthermore, some casinos shuffle cards when they feel like the remaining cards in the deck are particularly advantageous to the player. Some countermeasures are more direct, such as confiscation of chips or detention rooms like in the movie Casino. </p>
+        <img src="scorcese_casino.png" class="center">
+        <p class="font caption">A frame from the movie Casino (1995), directed by Martin Scorcese.</p>
+        <p class="font">How to not get caught? Plays such as splitting tens, doubling soft 18/19/20, standing on 15/16, and surrendering on 14, when basic strategy says otherwise, may be a sign of a card counter. Also, don't vary your bets greatly and you should be fine. Good luck! </p>
+        <img src="last_casino.png" class="center">
+        <p class="font caption">A frame from the movie The Last Casino (2004), directed by Pierre Gill.</p>
+        <p class="font">I also really recommend reading about the legality of card counting, other card counting strategies other than the Hi-Lo and about card counting teams. Wikipedia and Ben Mezrich books are a great place to start. Ok, bye.</p>
+        <a class="font link" href="https://www.247blackjack.com/">Blackjack sim online</a>
+        </div>
+
+    <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"> </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      </body>
+    </html>
